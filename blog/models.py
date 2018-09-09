@@ -3,7 +3,7 @@ from django.utils import timezone
 
 # Create your models here.
 
-class CourseGrades(models.Model):
+class CourseGrade(models.Model):
     courseTypeChoices = ( ("General" , "general") , ('Basic' , 'basic') , ("Profesional" , 'profesional') ,)
     departments = (("Mathematics department" , "Mathematics department") ,
      ("Computer Engineering department","Computer Engineering department"),
@@ -11,6 +11,7 @@ class CourseGrades(models.Model):
      ("Religous Center","Religous Center") , ("Language Center","Language Center") ,)
     CourseName = models.CharField(max_length = 32)
     UnitsNumber = models.SmallIntegerField()
+    TermNumber = models.SmallIntegerField(default = '1')
     Type = models.CharField(max_length = 32 , choices = courseTypeChoices , default = "Profesional")
     Department = models.CharField(max_length = 56 , choices = departments , default = "Mathematics department")
     Grade = models.SmallIntegerField()
